@@ -1,33 +1,78 @@
 {
   "project_info": {
-    "project_number": "347639940277",
-    "project_id": "flutter-login-51946",
-    "storage_bucket": "flutter-login-51946.appspot.com"
+    "project_number": "821911674733",
+    "project_id": "loginsha-92dd1",
+    "storage_bucket": "loginsha-92dd1.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:347639940277:android:e3017bb760d606d48b6afc",
+        "mobilesdk_app_id": "1:821911674733:android:d1ccb56b00ed262c670464",
         "android_client_info": {
-          "package_name": "com.example.mydoctor"
+          "package_name": "com.example.doctor"
         }
       },
       "oauth_client": [
         {
-          "client_id": "347639940277-9bbsm9vv70nankllparof0eqiuinmln3.apps.googleusercontent.com",
+          "client_id": "821911674733-gvbfov2603rp091403768kqg5o7701rh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.doctor",
+            "certificate_hash": "8904408c8bad07d2dd13277a3c0aa0e16ece2b15"
+          }
+        },
+        {
+          "client_id": "821911674733-7jstkck2e1fgfllom78jq3dm1vkd68jq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC3jxq1Epse3EX0V6w75-wFpd9EY8351FY"
+          "current_key": "AIzaSyDQcnc67EHBZEgbTk7nUgtkvoeEibKF0HI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "347639940277-9bbsm9vv70nankllparof0eqiuinmln3.apps.googleusercontent.com",
+              "client_id": "821911674733-7jstkck2e1fgfllom78jq3dm1vkd68jq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:821911674733:android:cf57d2a9e4e4ac13670464",
+        "android_client_info": {
+          "package_name": "com.example.mydoctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "821911674733-1pm7earf08qaos4ok3juoaekmabq0l26.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mydoctor",
+            "certificate_hash": "8904408c8bad07d2dd13277a3c0aa0e16ece2b15"
+          }
+        },
+        {
+          "client_id": "821911674733-7jstkck2e1fgfllom78jq3dm1vkd68jq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQcnc67EHBZEgbTk7nUgtkvoeEibKF0HI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "821911674733-7jstkck2e1fgfllom78jq3dm1vkd68jq.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -1,8 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:mydoctor/pages/login_page.dart';
 
 import '../home_page.dart';
+import '../reusable_widgets/reusable_widget.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -12,221 +14,123 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController _passwordTextController = TextEditingController();
+  TextEditingController _emailTextController = TextEditingController();
+  TextEditingController _userNameTextController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[300],
       body: SafeArea(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Image.asset(
-              //   'images/dochome.png',
-              //   width: 200,
-              //   scale: 2.5,
-              // ),
-              const Icon(
-                Icons.local_hospital_rounded,
-                size: 40,
-                color: Colors.pink,
-              ),
-              //Welcoming Text and Picture if possible
-              Text(
-                'My Doc',
-                style: TextStyle(
-                  fontWeight:
-                      FontWeight.lerp(FontWeight.w400, FontWeight.w800, 1),
-                  fontSize: 24,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(10, 40, 10, 0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.05,
                 ),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              Text(
-                'Enjoy your Medical Assistant',
-                style: TextStyle(
-                  fontWeight:
-                      FontWeight.lerp(FontWeight.w400, FontWeight.w800, 0),
-                  fontSize: 18,
+                appIcon(Icons.local_hospital_rounded),
+                majorText('My Doctor'),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.05,
                 ),
-              ),
-
-              const SizedBox(
-                height: 50,
-              ),
-              //Email Box
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    border: Border.all(
-                      color: Colors.white,
-                    ),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.only(left: 8.0),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Name',
-                      ),
-                    ),
-                  ),
+                descriptionText('Your No1 Medical Assistant'),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.1,
                 ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
-              //Personal Phone Number
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    // border: Border.all(
-                    //   color: Colors.white,
-                    // ),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: IntlPhoneField(
-                    decoration: const InputDecoration(
-                      border: InputBorder.none,
-                      hintText: 'Phone Number',
-                    ),
-                    initialCountryCode: 'UG',
-                    onChanged: (phone) {
-                      print(phone.completeNumber);
-                    },
-                  ),
+                reusableTextField('Enter Your Name', Icons.verified_user, false,
+                    _userNameTextController),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.02,
                 ),
-              ),
-              SizedBox(
-                height: 10,
-              ),
 
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    border: Border.all(
-                      color: Colors.white,
-                    ),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.only(left: 8.0),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Email',
-                      ),
-                    ),
-                  ),
+                reusableTextField('Enter Email', Icons.verified_user, false,
+                    _emailTextController),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.02,
                 ),
-              ),
-
-              const SizedBox(
-                height: 10,
-              ),
-
-              //Password Box
-
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    border: Border.all(
-                      color: Colors.white,
-                    ),
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.only(left: 8.0),
-                    child: TextField(
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        border: InputBorder.none,
-                        hintText: 'Password',
-                      ),
-                    ),
-                  ),
+                reusableTextField("Enter Password", Icons.lock_outline, true,
+                    _passwordTextController),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
                 ),
-              ),
+                //Email Box
 
-              const SizedBox(
-                height: 20,
-              ),
-              //Login Button or Sign in
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25.0),
-                child: Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.pink[300],
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => HomePage()));
-                    },
-                    child: const Center(
-                        child: Text(
-                      'Sign Up',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 20),
-                    )),
-                  ),
+                //Personal Phone Number
+                // Padding(
+                //   padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                //   child: Container(
+                //     decoration: BoxDecoration(
+                //       color: Colors.grey[200],
+                //       // border: Border.all(
+                //       //   color: Colors.white,
+                //       // ),
+                //       borderRadius: BorderRadius.circular(10.0),
+                //     ),
+                //     child: IntlPhoneField(
+                //       decoration: const InputDecoration(
+                //         border: InputBorder.none,
+                //         hintText: 'Phone Number',
+                //       ),
+                //       initialCountryCode: 'UG',
+                //       onChanged: (phone) {
+                //         print(phone.completeNumber);
+                //       },
+                //     ),
+                //   ),
+                // ),
+
+                //Password Box
+
+                signInSignUpButton(context, false, () {
+                  FirebaseAuth.instance
+                      .createUserWithEmailAndPassword(
+                          email: _emailTextController.text,
+                          password: _passwordTextController.text)
+                      .then((value) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomePage()));
+                  }).onError((error, stackTrace) {
+                    print('Error : ${error.toString()}');
+                  });
+                }),
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.03,
                 ),
-              ),
-              const SizedBox(
-                height: 20.0,
-              ),
-              //Forgot Password        //Register
+                //Forgot Password        //Register
 
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('Have Account?'),
-                  GestureDetector(
-                    onTap: () {
-                      //Go to the Regster Page
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) => LoginPage()));
-                    },
-                    child: GestureDetector(
-                      child: const Text(
-                        ' Login',
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  // Text(' | '),
-                  // GestureDetector(
-                  //   onTap: () {},
-                  //   child: Text(
-                  //     'Forgot Password?',
-                  //     style: TextStyle(
-                  //       color: Colors.red,
-                  //     ),
-                  //   ),
-                  // ),
-                ],
-              ),
-            ],
+                signInOption(),
+              ],
+            ),
           ),
         ),
       ),
+    );
+  }
+
+  Row signInOption() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          'You have an account?',
+          style: TextStyle(
+              color: Colors.black45, fontWeight: FontWeight.bold, fontSize: 18),
+        ),
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => LoginPage()));
+          },
+          child: Text(
+            '  Login',
+            style: TextStyle(
+                color: Colors.blue, fontWeight: FontWeight.bold, fontSize: 18),
+          ),
+        )
+      ],
     );
   }
 }
