@@ -12,7 +12,7 @@ class _IntroPage1State extends State<IntroPage1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.redAccent,
+      backgroundColor: Colors.pink,
       body: Padding(
         padding: const EdgeInsets.fromLTRB(20, 40, 10, 0),
         child: Center(
@@ -26,7 +26,14 @@ class _IntroPage1State extends State<IntroPage1> {
               SizedBox(
                 height: 20.0,
               ),
-              Center(child: Text('Here for your Medical Assistant')),
+              Center(
+                  child: Text(
+                'Here for your Medical Assistant',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18),
+              )),
             ],
           ),
         ),
