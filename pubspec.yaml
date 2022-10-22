@@ -70,6 +70,8 @@ flutter:
   assets:
     - images/
     - icons/
+    #For the inside widgets
+    - assets/images/
     
     
     
@@ -86,6 +88,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+
   # fonts:
   #   - family: Schyler
   #     fonts:
@@ -98,5 +101,18 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+  fonts:
+  
+    - family: SFProDisplay
+      fonts:
+        - asset: assets/fonts/SFProDisplay-Bold.otf    
+          weight: 700
+        - asset: assets/fonts/SFProDisplay-Semibold.otf
+          weight: 600
+        - asset: assets/fonts/SFProDisplay-Regular.otf
+          weight: 400
+        - asset: assets/fonts/SFProDisplay-Light.otf
+          weight: 300  
+
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

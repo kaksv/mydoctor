@@ -96,4 +96,38 @@ Container signInSignUpButton(
           ))),
     ),
   );
+
+  //Submit Button
+  // Container submitButton() {
+  //   return Container(
+  //     width: MediaQuery.of(context).size.width,
+  //     height: MediaQuery.of(context).size.height * 0.1,
+  //     margin: EdgeInsets.fromLTRB(0, 10, 0, 20),
+  //     decoration: BoxDecoration(
+  //       borderRadius: BorderRadius.circular(10.0),
+  //       // color: Colors.pink[300],
+  //     ),
+  //     child: ElevatedButton(
+  //       onPressed: () {
+  //         onTap();
+  //       },
+  //       child: Text(
+  //         'Submit',
+  //         style: TextStyle(
+  //             color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
+  //       ),
+  //       style: ButtonStyle(
+  //           backgroundColor: MaterialStateProperty.resolveWith((states) {
+  //             if (states.contains(MaterialState.pressed)) {
+  //               return Colors.pink;
+  //             }
+  //             return Colors.pink[300];
+  //           }),
+  //           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+  //               RoundedRectangleBorder(
+  //             borderRadius: BorderRadius.circular(10),
+  //           ))),
+  //     ),
+  //   );
+  // }
 }
